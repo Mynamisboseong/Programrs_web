@@ -1,9 +1,10 @@
-function sum (a,b){
-    return a + b;
+function solution(array, n) {
+    let count = 0;
+    
+    for(i = 0; i < array.length; i++){
+       if(array[i] === n) {
+            count += 1;
+       }
+   }
+    return count;
 }
-
-function print(value){
-    console.log(value);
-}
-
-print(sum(5,10));
