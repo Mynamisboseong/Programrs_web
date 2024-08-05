@@ -28,6 +28,7 @@ class Queue {
     }
 
     dequeue() {
+        //스택을 연결리스트로 구현했을 때 팝 하는 구현과 동일하다.
         const value = this.head.value;
         this.head = this.head.next;
         this.size -= 1;
@@ -35,6 +36,7 @@ class Queue {
     }
 
     peek() {
+        //head의 값을 그대로 반환하면 된다.
         return this.head.value;
     }
 }
