@@ -72,3 +72,30 @@ var theOralCigrettes = new RockBand([
 ]);
 
 theOralCigarettes.perform();
+
+//해결법 3. 클로져 사용
+//RockBand의 this 를 that이라는 변수에 넣었고, setTimeout function에서는 that.members.forEach... 이런식으로 접근을 하고 있다. 
+//setTimeout function에서 해당 함수스코프 밖에 있는 변수를 참고하고 있는데, 이것을 클로져 라고 한다.
+//해당 코드처럼, this를 다른 변수에 넣어놓고, 클로저를 통해 접근을 하면, 함수 스코프 밖에 있는 변수도 참조할 수 있는 기능을 클로져라고 한다. 
+function RockBand(members) {
+    var that = this;
+    this.members = members;
+    this.perform = fuction() {
+        setTimeout(function() {
+            that.members.forEach(function(member){
+                member.perform();
+            })
+        },1000)
+    }
+}
+
+var theOralCigrettes = new RockBand([
+    {
+        name: 'takuya',
+        perform: function() {
+            console.log('sing: a e u i a e u i')
+        }
+    }
+]);
+
+theOralCigarettes.perform();
