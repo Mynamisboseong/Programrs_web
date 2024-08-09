@@ -35,4 +35,7 @@ for(let i = 0; i < numbers.length; i++) {
     }, i * 1000)
 }
 
+//해결법 3
+//for문 대신 foreach문 사용
+
 
